@@ -2,14 +2,9 @@ package com.ict.edu2.member.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-// @Getter
-// @Setter
+
 // @RequiredArgsConstructor :  final 이나 @NonNull 인 필드값만 파라미터로 받는 생성자 
 // @Getter, @Setter, @RequiredArgsConstructor, @ToString, @EqualsAndHashCode을 한꺼번에 설정
 @Data

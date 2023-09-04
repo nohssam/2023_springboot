@@ -66,14 +66,23 @@ public class MyController {
     }
     @PostMapping("/join")
         public Map<String, Object> join(MemberVO vo){
-            log.info("\nlogin 서버!!\n");
-            log.info("\n"+vo.getM_id()+"\n");
-            log.info("\n"+vo.getM_pw()+"\n");
-
             Map<String, Object> resMap = new HashMap<>();
-            resMap.put("chk", 0);
+            DataVO dataVO = new DataVO();
+
+            // 패스워드를 암호화 해야 된다.
+            vo.setM_pw(passwordEncoder.encode(vo.getM_pw()));
+            int result = memberDAO.getMemberAdd(vo);
+            if(result>0){
+                dataVO.setSuccess(true);
+                dataVO.setMessage("회원가입 성공");
+            }else{
+                dataVO.setSuccess(false);
+                dataVO.setMessage("회원가입 실패");
+            }
+            resMap.put("data", dataVO);
             return resMap ;
-        }
+           
+     }
 
     @GetMapping("/list")
     public Map<String, Object> getList(){

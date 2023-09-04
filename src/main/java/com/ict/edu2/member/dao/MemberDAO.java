@@ -27,4 +27,9 @@ public class MemberDAO {
         MemberVO mvo = ss.selectOne("members.memberone", m_id);
         return mvo ;
     }
+
+    public int getMemberAdd(MemberVO vo){
+        int result = ss.insert("members.insert", vo);
+        return result;
+    }
 }

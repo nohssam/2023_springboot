@@ -59,6 +59,8 @@ public class MyController {
                 session.setAttribute("mvo", mvo);
                 dataVO.setSuccess(true);
                 dataVO.setMessage("로그인 성공");
+                // 프로트엔드에서 사용하기 위해서 저장
+                dataVO.setData(mvo);
                 resMap.put("data", dataVO);
                 return resMap ;
             }
